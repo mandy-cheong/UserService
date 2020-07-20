@@ -7,7 +7,6 @@ namespace UserService.Database.Entities
 {
     public class User
     {
-        public int a { get; set; }
         public int UserId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }

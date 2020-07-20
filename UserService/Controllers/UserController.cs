@@ -57,8 +57,20 @@ namespace UserService.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put( [FromBody] User model)
         {
+            try
+            {
+                db.Update(model);
+                db.SaveChanges();
+                return StatusCode(StatusCodes.Status201Created, model);
+            }
+            catch (Exception) 
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, model);
+            }
+          
         }
 
         // DELETE api/<UserController>/5
